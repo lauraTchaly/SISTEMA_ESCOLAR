@@ -118,7 +118,7 @@ def exibir_nota():
             if matricula in dado:
                 if "Notas" in dado[matricula]:
                     notas = dado[matricula]["Notas"]
-                    print(f"Notas do aluno {dado[matricula]['Nome']} : {notas}")
+                    print(f"Notas do aluno {dado[matricula]['nome']} : {notas}")
                     return
 
     print("Matrícula não encontrada.")
@@ -126,14 +126,14 @@ def exibir_nota():
 #FUNÇÃO PARA EDITAR AS NOTAS DE UM ALUNO
 def editar_notas():
     matricula = input("Digite a matrícula do aluno para edição de nota: ")
-    with open("aluno.json", "r") as file:
+    with open("alunos.json", "r") as file:
         linhas = file.readlines()
     for i, linha in enumerate(linhas):
         dado = json.loads(linha)
         if matricula in dado:
             if "Notas" in dado[matricula]:
                 notas = dado[matricula]["Notas"]
-                print(f"Notas atuais do aluno {dado[matricula]['Nome']} : {notas}")
+                print(f"Notas atuais do aluno {dado[matricula]['nome']} : {notas}")
 
                 nova_prova1 = input("Nova nota da prova 1: ")
                 nova_prova2 = input("Nova nota da prova 2: ")
